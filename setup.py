@@ -1,15 +1,15 @@
 import os.path
-from setuptools import setup, Extension
+from glob import glob
 
+import setuptools
+from numpy.distutils.core import setup, Extension
 
-cephes_src = ([os.path.join('src', 'cephes', '*.c')] + 
-              [os.path.join('src', 'cephes', '*.h')])
-
+cephes_src = glob(os.path.join("src", "*.c"))
 cephes_ext = Extension('cephes', sources=cephes_src)
 
 setup(
     name="cephes",
-    version="2016.03.11",
+    version="2016.03.30",
     description="CEPHES mathematical library",
     maintainer="Juan Luis Cano Rodríguez",
     maintainer_email="hello@juanlu.space",
